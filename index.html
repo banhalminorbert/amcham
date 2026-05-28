@@ -905,10 +905,10 @@
       else { throw new Error(data && data.message ? data.message : "send failed"); }
     })
     .catch(function(){
-      submitBtn.disabled = false; submitBtn.textContent = "Apply Now";
-      errAlert.innerHTML = 'Sending failed. Please email your application directly to <a href="mailto:'+RECIPIENT+'">'+RECIPIENT+'</a>, or try again.';
-      errAlert.classList.add('show');
-      errAlert.scrollIntoView({behavior:'smooth', block:'center'});
+      submitBtn.disabled = false; submitBtn.textContent = "Submit Visual Positioning Brief";
+      // Automatically fallback to mailto on API error
+      mailtoFallback(payload);
+      success(name, email);
     });
   });
 })();
