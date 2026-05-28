@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Portrait & Brand Photography for AMCHAM Members | Norbert Banhalmi</title>
+<meta name="description" content="Exclusive executive portrait and brand photography in Vienna for members of the American Chamber of Commerce in Austria (AMCHAM). Strategic image positioning by Norbert Banhalmi.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+  :root{
+    --bg:#0b0b0d;
+    --bg-soft:#131318;
+    --panel:#17171d;
+    --panel-2:#1e1e26;
+    --line:#2a2a34;
+    --line-soft:#202028;
+    --gold:#cfa752;
+    --gold-soft:#e8d09a;
+    --gold-dim:#a98a45;
+    --text:#f1ede5;
+    --muted:#b1aca2;
+    --muted-2:#8a857c;
+    --err:#e09a8c;
+    --ok:#8fc79a;
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.75;
+    letter-spacing:.15px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:rgba(207,167,82,.25);color:#fff}
+  a{color:var(--gold-soft);text-decoration:none;transition:color .2s}
+  a:hover{color:var(--gold)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px}
+  .serif{font-family:var(--serif)}
+
+  /* HEADER */
+  .topbar{
+    background:linear-gradient(90deg,#0f0c06,#1a1409,#0f0c06);
+    border-bottom:1px solid var(--gold-dim);
+    color:var(--gold-soft);
+    text-align:center;
+    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;
+    padding:10px 18px;line-height:1.6;
+  }
+  header{
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,11,13,.82);
+    backdrop-filter:blur(14px) saturate(1.1);
+  }
+  .hd{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;max-width:900px;margin:0 auto}
+  .brand{font-family:var(--serif);font-size:23px;letter-spacing:4px;font-weight:500;z-index:60;color:var(--text)}
+  .brand span{color:var(--gold)}
+  .hd nav{display:flex;align-items:center;flex-wrap:wrap}
+  .hd nav a{position:relative;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);margin-left:24px;padding-bottom:3px}
+  .hd nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s ease}
+  .hd nav a:hover{color:var(--text)}
+  .hd nav a:hover::after{width:100%}
+  .hd nav a.ext{color:var(--gold-soft)}
+  .hd nav a.ext:hover{color:var(--gold)}
+
+  /* Hamburger button */
+  .burger{
+    display:none;flex-direction:column;justify-content:center;gap:5px;
+    width:34px;height:34px;background:none;border:none;cursor:pointer;z-index:60;padding:4px;
+  }
+  .burger span{display:block;height:1.5px;width:24px;background:var(--gold);transition:.3s;border-radius:2px}
+  .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  @media(max-width:780px){
+    .burger{display:flex}
+    .hd nav{
+      position:fixed;top:0;right:0;height:100vh;width:80%;max-width:330px;
+      flex-direction:column;align-items:flex-start;justify-content:flex-start;
+      gap:0;padding:96px 32px 40px;
+      background:linear-gradient(180deg,#16161c,#101015);border-left:1px solid var(--gold-dim);
+      transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);
+      box-shadow:-24px 0 60px rgba(0,0,0,.55);overflow-y:auto;z-index:55;
+    }
+    .hd nav.open{transform:translateX(0)}
+    .hd nav a{margin:0;padding:15px 0;font-size:13.5px;width:100%;border-bottom:1px solid var(--line-soft)}
+    .hd nav a::after{display:none}
+    .hd nav a:last-child{border-bottom:none}
+    .navscrim{
+      position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;
+      transition:.3s;z-index:54;backdrop-filter:blur(2px);
+    }
+    .navscrim.show{opacity:1;visibility:visible}
+  }
+
+  /* HERO */
+  .hero{
+    padding:108px 0 84px;
+    text-align:center;
+    position:relative;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -8%, rgba(207,167,82,.13), transparent 62%),
+      var(--bg);
+  }
+  .eyebrow{
+    font-size:10.5px;letter-spacing:4.5px;text-transform:uppercase;
+    color:var(--gold);margin-bottom:30px;font-weight:500;
+  }
+  .eyebrow::before,.eyebrow::after{content:"·";margin:0 12px;color:var(--gold-dim)}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(36px,6.2vw,62px);
+    line-height:1.08;
+    letter-spacing:.3px;
+    margin-bottom:26px;
+    color:#fbf8f1;
+  }
+  .hero p.lead{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.6vw,25px);
+    font-style:italic;font-weight:400;
+    color:var(--gold-soft);
+    max-width:640px;margin:0 auto 32px;
+    line-height:1.45;
+  }
+  .hero p.sub{max-width:600px;margin:0 auto;color:var(--muted);font-size:15.5px;line-height:1.7}
+  .badge{
+    display:inline-block;margin-top:40px;
+    border:1px solid var(--gold-dim);
+    background:rgba(207,167,82,.06);
+    color:var(--gold-soft);
+    font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:400;
+    padding:11px 22px;border-radius:2px;
+  }
+  .cta-row{margin-top:42px}
+  .btn{
+    display:inline-block;cursor:pointer;
+    font-family:var(--sans);font-size:12.5px;letter-spacing:2px;text-transform:uppercase;
+    padding:16px 38px;border-radius:2px;border:1px solid var(--gold);
+    background:var(--gold);color:#16130a;font-weight:600;transition:.25s ease;
+  }
+  .btn:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:#16130a;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--gold-soft);margin-left:14px;font-weight:500}
+  .btn-ghost:hover{background:transparent;color:var(--gold);border-color:var(--gold);transform:translateY(-1px)}
+
+  /* SECTIONS */
+  section.block{padding:84px 0;border-bottom:1px solid var(--line)}
+  .sec-label{font-size:10.5px;letter-spacing:4.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;text-align:center;font-weight:500}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,4vw,42px);text-align:center;margin-bottom:20px;letter-spacing:.3px;line-height:1.12;color:#fbf8f1}
+  .sec-intro{max-width:600px;margin:0 auto;text-align:center;color:var(--muted);font-size:15.5px;line-height:1.75}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:linear-gradient(160deg,var(--panel),#141419);
+    border:1px solid var(--line);
+    padding:34px 30px;border-radius:4px;transition:border-color .3s,transform .3s;
+  }
+  .card:hover{border-color:var(--gold-dim);transform:translateY(-2px)}
+  .card .num{font-family:var(--serif);font-size:32px;color:var(--gold);font-style:italic;margin-bottom:14px;line-height:1}
+  .card h3{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:11px;color:var(--text)}
+  .card p{font-size:14.5px;color:var(--muted);line-height:1.7}
+
+  /* FORM */
+  .form-wrap{max-width:720px;margin:46px auto 0}
+  .fgroup{margin-bottom:30px}
+  .fgroup>label.q,.legend{
+    display:block;font-size:14px;font-weight:500;color:var(--text);
+    letter-spacing:.3px;margin-bottom:7px;
+  }
+  .hint{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+  .req{color:var(--gold)}
+  input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea{
+    width:100%;background:var(--bg-soft);border:1px solid var(--line);
+    color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;
+    padding:14px 16px;border-radius:3px;transition:border-color .2s,box-shadow .2s;
+  }
+  input::placeholder,textarea::placeholder{color:var(--muted-2)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(207,167,82,.12)}
+  textarea{resize:vertical;min-height:96px;line-height:1.65}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:560px){.two{grid-template-columns:1fr;gap:0}}
+  select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23cfa752' stroke-width='1.5' fill='none'/></svg>");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+
+  .opts{display:flex;flex-wrap:wrap;gap:11px}
+  .opts.col{flex-direction:column}
+  .chip{
+    display:flex;align-items:center;gap:11px;cursor:pointer;
+    background:var(--bg-soft);border:1px solid var(--line);
+    padding:12px 16px;border-radius:3px;font-size:14px;color:var(--muted);
+    transition:border-color .18s,color .18s,background .18s;user-select:none;
+  }
+  .chip:hover{border-color:var(--gold-dim);color:var(--text);background:rgba(207,167,82,.05)}
+  .chip:has(input:checked){border-color:var(--gold);color:var(--text);background:rgba(207,167,82,.08)}
+  .chip input{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}
+  .chip.full{width:100%}
+
+  .consent{
+    background:var(--panel-2);border:1px solid var(--line);
+    border-radius:4px;padding:8px 24px;margin-top:8px;
+  }
+  .consent .chip{background:transparent;border:none;padding:14px 0;align-items:flex-start;color:var(--muted);font-size:13.5px;line-height:1.65}
+  .consent .chip:hover{background:transparent;color:var(--muted)}
+  .consent .chip:not(:last-child){border-bottom:1px solid var(--line-soft)}
+  .consent .chip input{margin-top:3px;flex:0 0 auto}
+
+  .submit-row{margin-top:36px;text-align:center}
+  .formnote{font-size:12.5px;color:var(--muted);margin-top:18px;text-align:center;line-height:1.65;max-width:520px;margin-left:auto;margin-right:auto}
+
+  .alert{display:none;padding:17px 20px;border-radius:4px;margin-bottom:24px;font-size:14px;line-height:1.6}
+  .alert.show{display:block}
+  .alert.err{background:rgba(224,154,140,.1);border:1px solid var(--err);color:var(--err)}
+  .alert.ok{background:rgba(143,199,154,.1);border:1px solid var(--ok);color:var(--ok)}
+  .field-err{color:var(--err);font-size:12.5px;margin-top:7px;display:none}
+  .invalid input,.invalid select,.invalid textarea{border-color:var(--err)}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:54px}
+  @media(max-width:640px){.contact-grid{grid-template-columns:1fr}}
+  .contact-card{background:linear-gradient(160deg,var(--panel),#141419);border:1px solid var(--line);padding:26px 28px;border-radius:4px;transition:border-color .3s}
+  .contact-card:hover{border-color:var(--gold-dim)}
+  .contact-card .k{font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:9px;font-weight:500}
+  .contact-card .v{font-size:15px;line-height:1.6}
+  .contact-card .v a{color:var(--text)}
+  .contact-card .v a:hover{color:var(--gold)}
+
+  /* IMPRESSUM / LEGAL */
+  .legal{padding:78px 0;background:var(--bg-soft);border-bottom:1px solid var(--line)}
+  .legal h2{text-align:left;font-size:28px;margin-bottom:8px}
+  .legal .sec-label{text-align:left}
+  .legal .lrow{display:grid;grid-template-columns:230px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft);font-size:14px;line-height:1.6}
+  @media(max-width:560px){.legal .lrow{grid-template-columns:1fr;gap:3px}}
+  .legal .lrow .lk{color:var(--muted-2);font-weight:400;letter-spacing:.3px}
+  .legal .lrow .lv{color:var(--text)}
+  .legal .priv{margin-top:42px;font-size:14px;color:var(--muted);line-height:1.8}
+  .legal .priv h3{font-family:var(--serif);font-size:21px;color:var(--text);font-weight:500;margin:30px 0 9px}
+  .legal .priv ul{margin:9px 0 9px 22px}
+  .legal .priv li{margin-bottom:6px}
+
+  /* FOOTER */
+  footer{padding:60px 0 64px;text-align:center}
+  footer .brand{display:inline-block}
+  .fsoc{margin:24px 0;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+  .fsoc a{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}
+  .fsoc a:hover{color:var(--gold)}
+  .fmemb{font-size:10.5px;letter-spacing:1.5px;color:var(--muted-2);margin:16px 0;text-transform:uppercase;line-height:1.8}
+  .fcopy{font-size:13px;color:var(--muted);font-family:var(--serif);font-style:italic;letter-spacing:.8px;margin-top:16px}
+  .flinks{margin-top:14px;font-size:12px}
+  .flinks a{color:var(--muted);margin:0 9px}
+  .frule{width:60px;height:1px;background:var(--gold-dim);margin:22px auto;opacity:.6}
+
+  @media(max-width:780px){
+    /* Two-column organizers grid to single on tablets */
+    [style*="grid-template-columns:1fr 1fr"][style*="gap:28px"]{
+      grid-template-columns:1fr !important;
+      gap:32px !important;
+    }
+  }
+  @media(max-width:640px){
+    .contact-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    .hero{padding:72px 0 60px}
+    section.block{padding:60px 0}
+    .legal{padding:56px 0}
+    .badge{font-size:10px;padding:9px 16px;margin-top:32px}
+    .btn{padding:15px 28px;font-size:12px}
+    .btn-ghost{margin-left:0;margin-top:12px}
+    .cta-row{display:flex;flex-direction:column;align-items:center;gap:6px}
+    .cta-row .btn{width:100%;max-width:300px;text-align:center}
+    .topbar{font-size:9.5px;letter-spacing:1.4px;padding:9px 16px}
+    .hd{padding:16px 20px}
+    .brand{font-size:20px;letter-spacing:2.5px}
+  }
+</style>
+</head>
+<body id="top">
+
+<div class="topbar">An exclusive offer for AMCHAM Austria members · A sponsored photo session by Viko Speier &amp; Norbert Bánhalmi</div>
+<header>
+  <div class="hd">
+    <a href="#top" class="brand" style="text-decoration:none">NORBERT <span>BANHALMI</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="#about">Approach</a>
+      <a href="#process">Process</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact</a>
+      <a class="ext" href="https://www.norbertbanhalmi.com/portrait" target="_blank" rel="noopener">Executive Portraits</a>
+      <a class="ext" href="https://www.norbertbanhalmi.com/lifestyle" target="_blank" rel="noopener">Brand &amp; Lifestyle</a>
+      <a class="ext" href="https://www.norbertbanhalmi.com/event-photography" target="_blank" rel="noopener">Events</a>
+      <a class="ext" href="https://www.norbertbanhalmi.com/#My-Gallery" target="_blank" rel="noopener">Gallery</a>
+      <a class="ext" href="https://www.norbertbanhalmi.com" target="_blank" rel="noopener">Main Site ↗</a>
+    </nav>
+  </div>
+  <div class="navscrim" id="navscrim"></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A Sponsored Session — Exclusively for AMCHAM Austria Members</div>
+    <h1 class="serif">For Leaders Who<br>Dislike Being Photographed</h1>
+    <p class="lead">If you've never felt photogenic — this session was designed for you.</p>
+    <p class="sub">Most executives don't enjoy being in front of the camera. That's exactly who we want to work with. A relaxed, guided session that turns reluctance into a portrait you'll actually want to use — created in Vienna with precision, discretion and reputational awareness.</p>
+    <div class="badge">A photography sponsorship by Viko Speier &amp; Norbert Bánhalmi for AMCHAM members</div>
+    <div class="cta-row">
+      <a href="#booking" class="btn">Apply for a Session</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-label">Why This Session</div>
+    <h2 class="serif">Not photogenic? Good.</h2>
+    <p class="sec-intro">"I'm not photogenic" and "I hate having my picture taken" are the two things we hear most — and the two reasons this sponsored session exists. With 25+ years of experience across Vienna and Budapest, the work is built on putting reluctant subjects at ease and revealing the presence they didn't know the camera could capture. Discreet. Clear. Impactful.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="num">01</div>
+        <h3 class="serif">No Pressure</h3>
+        <p>A calm, guided session with no awkward posing. You're directed step by step, so you never have to "figure out the camera" yourself.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3 class="serif">You, At Your Best</h3>
+        <p>The goal isn't a glamorous stranger — it's an authentic, confident portrait of you that finally feels right to use.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3 class="serif">Sponsored &amp; Discreet</h3>
+        <p>A sponsorship by Viko Speier &amp; Norbert Bánhalmi for AMCHAM members. Every session, location and image is handled in confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="block" id="process">
+  <div class="wrap">
+    <div class="sec-label">What Happens Next</div>
+    <h2 class="serif">A simple, considered process</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="num">I.</div>
+        <h3 class="serif">Your Application</h3>
+        <p>Complete the form below. It goes directly to Viko Speier, who replies within 48 hours.</p>
+      </div>
+      <div class="card">
+        <div class="num">II.</div>
+        <h3 class="serif">Consultation</h3>
+        <p>A short, no-pressure call to align on concept, Vienna location, timing, wardrobe and deliverables.</p>
+      </div>
+      <div class="card">
+        <div class="num">III.</div>
+        <h3 class="serif">The Session</h3>
+        <p>The shoot, followed by a curated selection and refined retouching of your final images.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="block" id="booking">
+  <div class="wrap">
+    <div class="sec-label">Application</div>
+    <h2 class="serif">Apply for your sponsored session</h2>
+    <p class="sec-intro">Please answer the questions below so the session can be tailored to you. Fields marked <span class="req">*</span> are required.</p>
+    <p class="sec-intro" style="color:var(--gold-soft);font-size:14px;margin-top:14px">Your submission is sent exclusively to <strong>Viko Speier</strong> (hello@vikospeier.com), who personally receives every application and will reply within <strong>48 hours</strong>.</p>
+
+    <div id="devWarning" style="display:none;background:rgba(224,154,140,.15);border:1px solid #e09a8c;border-radius:4px;padding:16px 18px;margin-bottom:24px;font-size:13.5px;line-height:1.7;color:#e09a8c">
+      <strong style="display:block;margin-bottom:8px">⚠️ Email forwarding not configured</strong>
+      The Web3Forms access key is not set. Form submissions will open your email client. To enable automatic forwarding to Viko Speier, <a href="https://web3forms.com" target="_blank" rel="noopener" style="color:#e09a8c;text-decoration:underline">generate a free access key</a> and replace <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:2px;font-family:monospace">REPLACE_WITH_WEB3FORMS_ACCESS_KEY</code> in the page code.
+    </div>
+
+    <form class="form-wrap" id="bookingForm" novalidate>
+      <div class="alert err" id="errAlert"></div>
+      <div class="alert ok" id="okAlert"></div>
+
+      <!-- CONTACT DETAILS -->
+      <div class="fgroup">
+        <label class="q">Full name <span class="req">*</span></label>
+        <input type="text" name="name" autocomplete="name">
+        <div class="field-err">Please enter your name.</div>
+      </div>
+
+      <div class="two">
+        <div class="fgroup">
+          <label class="q">Email <span class="req">*</span></label>
+          <input type="email" name="email" autocomplete="email">
+          <div class="field-err">Please enter a valid email address.</div>
+        </div>
+        <div class="fgroup">
+          <label class="q">Phone</label>
+          <input type="tel" name="phone" autocomplete="tel" placeholder="+43 …">
+          <div class="field-err"></div>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="fgroup">
+          <label class="q">Company / Organisation</label>
+          <input type="text" name="company" autocomplete="organization">
+          <div class="field-err"></div>
+        </div>
+        <div class="fgroup">
+          <label class="q">Role / Title</label>
+          <input type="text" name="role" autocomplete="organization-title">
+          <div class="field-err"></div>
+        </div>
+      </div>
+
+      <div class="fgroup">
+        <label class="q">LinkedIn profile <span class="req">*</span></label>
+        <div class="hint">Helps understand your current visual positioning before our call.</div>
+        <input type="url" name="linkedin" placeholder="https://www.linkedin.com/in/…">
+        <div class="field-err">Please add your LinkedIn profile URL.</div>
+      </div>
+
+      <!-- SESSION TYPE -->
+      <div class="fgroup">
+        <span class="legend">Type of photography <span class="req">*</span></span>
+        <div class="hint">Select all that apply.</div>
+        <div class="opts" data-group="type">
+          <label class="chip"><input type="checkbox" name="type" value="Executive Portrait / Headshots"> Executive Portrait / Headshots</label>
+          <label class="chip"><input type="checkbox" name="type" value="Personal Brand Photography"> Personal Brand Photography</label>
+          <label class="chip"><input type="checkbox" name="type" value="Team / Group Portraits"> Team / Group Portraits</label>
+          <label class="chip"><input type="checkbox" name="type" value="Corporate Event Coverage"> Corporate Event Coverage</label>
+        </div>
+        <div class="field-err">Please select at least one option.</div>
+      </div>
+
+      <!-- LOCATION IN VIENNA -->
+      <div class="fgroup">
+        <span class="legend">Where in Vienna would you picture the shoot? <span class="req">*</span></span>
+        <div class="hint">Choose a preferred setting — we can refine the exact spot during the consultation.</div>
+        <div class="opts col" data-group="location">
+          <label class="chip full"><input type="radio" name="location" value="Photographer's studio (Schwedenplatz, 1010 Wien)"> In the studio — Schwedenplatz 2, 1010 Vienna</label>
+          <label class="chip full"><input type="radio" name="location" value="Your office / company premises"> At your office or company premises</label>
+          <label class="chip full"><input type="radio" name="location" value="Outdoor / urban Vienna location"> Outdoor / urban Vienna location (streets, architecture)</label>
+          <label class="chip full"><input type="radio" name="location" value="Hotel / event venue"> A hotel, club or event venue</label>
+          <label class="chip full"><input type="radio" name="location" value="Undecided — open to recommendation"> Not sure yet — open to your recommendation</label>
+        </div>
+        <div class="field-err">Please choose a location preference.</div>
+      </div>
+
+      <div class="fgroup">
+        <label class="q">Specific location ideas or address (optional)</label>
+        <input type="text" name="location_detail" placeholder="e.g. our HQ in the 1st district, a particular landmark…">
+        <div class="field-err"></div>
+      </div>
+
+      <!-- TIMING -->
+      <div class="fgroup">
+        <span class="legend">Preferred timing <span class="req">*</span></span>
+        <div class="hint">When could you imagine the session taking place? Select all that work.</div>
+        <div class="opts" data-group="timing">
+          <label class="chip"><input type="checkbox" name="timing" value="Weekday mornings"> Weekday mornings</label>
+          <label class="chip"><input type="checkbox" name="timing" value="Weekday afternoons"> Weekday afternoons</label>
+          <label class="chip"><input type="checkbox" name="timing" value="Evenings"> Evenings</label>
+          <label class="chip"><input type="checkbox" name="timing" value="Weekends"> Weekends</label>
+          <label class="chip"><input type="checkbox" name="timing" value="Flexible"> Flexible</label>
+        </div>
+        <div class="field-err">Please indicate when the session could take place.</div>
+      </div>
+
+      <div class="two">
+        <div class="fgroup">
+          <label class="q">Target date or deadline (optional)</label>
+          <input type="text" name="deadline" placeholder="e.g. before end of June, or a fixed date">
+          <div class="field-err"></div>
+        </div>
+        <div class="fgroup">
+          <label class="q">Timezone / availability notes (optional)</label>
+          <input type="text" name="availability" placeholder="e.g. only Tuesdays & Thursdays">
+          <div class="field-err"></div>
+        </div>
+      </div>
+
+      <!-- WARDROBE & STYLE -->
+      <div class="fgroup">
+        <span class="legend">Wardrobe &amp; attire <span class="req">*</span></span>
+        <div class="hint">How would you like to be dressed? Select all that apply.</div>
+        <div class="opts" data-group="wardrobe">
+          <label class="chip"><input type="checkbox" name="wardrobe" value="Formal business (suit / tailored)"> Formal business (suit / tailored)</label>
+          <label class="chip"><input type="checkbox" name="wardrobe" value="Business casual"> Business casual</label>
+          <label class="chip"><input type="checkbox" name="wardrobe" value="Smart casual / creative"> Smart casual / creative</label>
+          <label class="chip"><input type="checkbox" name="wardrobe" value="Branded / corporate attire"> Branded / corporate attire</label>
+          <label class="chip"><input type="checkbox" name="wardrobe" value="Need advice on wardrobe"> I'd like advice on this</label>
+        </div>
+        <div class="field-err">Please select at least one option.</div>
+      </div>
+
+      <div class="fgroup">
+        <label class="q">Visual style &amp; mood <span class="req">*</span></label>
+        <div class="hint">Which atmosphere best fits your positioning?</div>
+        <select name="style">
+          <option value="">Select a style…</option>
+          <option>Classic &amp; corporate — clean, neutral background</option>
+          <option>Editorial — magazine-style, refined drama</option>
+          <option>Lifestyle — natural, in-context, relaxed</option>
+          <option>Bold &amp; contemporary — strong contrast, character</option>
+          <option>Warm &amp; approachable</option>
+          <option>Open to your direction</option>
+        </select>
+        <div class="field-err">Please choose a visual style.</div>
+      </div>
+
+      <!-- USAGE -->
+      <div class="fgroup">
+        <span class="legend">Where will the images be used? <span class="req">*</span></span>
+        <div class="hint">This affects framing, format and licensing. Select all that apply.</div>
+        <div class="opts" data-group="usage">
+          <label class="chip"><input type="checkbox" name="usage" value="LinkedIn / social media"> LinkedIn / social media</label>
+          <label class="chip"><input type="checkbox" name="usage" value="Company website"> Company website</label>
+          <label class="chip"><input type="checkbox" name="usage" value="Press / PR / media"> Press / PR / media</label>
+          <label class="chip"><input type="checkbox" name="usage" value="Speaker / conference materials"> Speaker / conference materials</label>
+          <label class="chip"><input type="checkbox" name="usage" value="Printed materials / reports"> Printed materials / reports</label>
+          <label class="chip"><input type="checkbox" name="usage" value="Advertising / campaign"> Advertising / campaign</label>
+        </div>
+        <div class="field-err">Please select at least one usage.</div>
+      </div>
+
+      <!-- EXTRA -->
+      <div class="fgroup">
+        <label class="q">Number of people to be photographed (optional)</label>
+        <input type="text" name="people" placeholder="e.g. just me / 3 team members">
+        <div class="field-err"></div>
+      </div>
+
+      <div class="fgroup">
+        <label class="q">Anything else I should know? (optional)</label>
+        <textarea name="notes" placeholder="Goals, references, brand guidelines, special requests…"></textarea>
+        <div class="field-err"></div>
+      </div>
+
+      <!-- GDPR CONSENT -->
+      <div class="fgroup">
+        <span class="legend">Data protection &amp; consent <span class="req">*</span></span>
+        <div class="consent">
+          <label class="chip">
+            <input type="checkbox" name="consent_privacy">
+            <span>I consent to my submitted personal data being sent exclusively to Viko Speier (hello@vikospeier.com) and used solely to respond to this application and arrange a possible sponsored photography session, in accordance with the <a href="#legal">Privacy Information</a> and Art. 6(1)(a) &amp; (b) GDPR. I understand Viko Speier will reply within 48 hours. <span class="req">*</span></span>
+          </label>
+          <label class="chip">
+            <input type="checkbox" name="consent_marketing">
+            <span>Optional: I would like to receive occasional updates and offers by email. I understand I can withdraw this consent at any time. <em>(optional)</em></span>
+          </label>
+        </div>
+        <div class="field-err">Your consent is required so I may respond to your enquiry.</div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn">Apply Now</button>
+        <p class="formnote">Your data is sent exclusively to Viko Speier, who replies within 48 hours. Processed under GDPR — withdraw consent or request deletion at any time via <a href="mailto:hello@vikospeier.com">hello@vikospeier.com</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="sec-label">The Organizers</div>
+    <h2 class="serif">Norbert Bánhalmi &amp; Viko Speier</h2>
+    <p class="sec-intro">This sponsored photography session is organized collaboratively by two professional photographers. Viko Speier is your primary contact — she will respond to all applications within 48 hours and coordinate your session.</p>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:60px">
+      <!-- NORBERT BÁNHALMI -->
+      <div style="text-align:center">
+        <h3 class="serif" style="font-size:24px;margin-bottom:8px">Norbert Bánhalmi</h3>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.6">Executive Portrait Photographer &amp; Visual Artist<br>25+ years experience · Vienna &amp; Budapest</p>
+        <div class="contact-grid" style="display:grid;grid-template-columns:1fr;gap:14px;margin-top:20px">
+          <div class="contact-card">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:hello@norbertbanhalmi.com">hello@norbertbanhalmi.com</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Phone (Austria)</div>
+            <div class="v"><a href="tel:+4367761655592">+43 677 616 55592</a> · <a href="https://wa.me/4367761655592" target="_blank" rel="noopener">WhatsApp</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Phone (Hungary)</div>
+            <div class="v"><a href="tel:+36704698397">+36 70 469 83 97</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Vienna Studio</div>
+            <div class="v"><a href="https://maps.app.goo.gl/gwd4y7xatPm4PNmy5" target="_blank" rel="noopener">Schwedenplatz 2, Laurenzerberg 5/I/8–9<br>1010 Vienna, Austria</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">LinkedIn</div>
+            <div class="v"><a href="https://www.linkedin.com/in/norbertbanhalmi/" target="_blank" rel="noopener">linkedin.com/in/norbertbanhalmi</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Website</div>
+            <div class="v"><a href="https://www.norbertbanhalmi.com" target="_blank" rel="noopener">www.norbertbanhalmi.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIKO SPEIER -->
+      <div style="text-align:center">
+        <h3 class="serif" style="font-size:24px;margin-bottom:8px">Viko Speier</h3>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.6">Professional Photographer &amp; Session Curator<br><strong style="color:var(--gold-soft)">Primary contact · Replies within 48 hours</strong></p>
+        <div class="contact-grid" style="display:grid;grid-template-columns:1fr;gap:14px;margin-top:20px">
+          <div class="contact-card">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:hello@vikospeier.com">hello@vikospeier.com</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Phone (Hungary)</div>
+            <div class="v"><a href="tel:+36304788850">+36 30 478 8850</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Budapest Studio</div>
+            <div class="v"><a href="https://maps.app.goo.gl/Wx1cMCSUsUxk8Gnq9" target="_blank" rel="noopener">1111 Budapest, Lágymányosi u. 15.<br>(doorbell 8)</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">LinkedIn</div>
+            <div class="v"><a href="https://www.linkedin.com/in/vikospeier/" target="_blank" rel="noopener">linkedin.com/in/vikospeier</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Instagram</div>
+            <div class="v"><a href="https://instagram.com/vikospeier" target="_blank" rel="noopener">instagram.com/vikospeier</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="k">Website</div>
+            <div class="v"><a href="https://www.vikospeier.com" target="_blank" rel="noopener">www.vikospeier.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL / IMPRESSUM + PRIVACY -->
+<section class="legal" id="legal">
+  <div class="wrap">
+    <div class="sec-label">Legal Notice</div>
+    <h2 class="serif">Impressum / Legal Notice</h2>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:24px">Information per § 5 E-Commerce Act (ECG) and disclosure per § 25 Media Act (Austria).</p>
+
+    <div class="lrow"><span class="lk">Company name</span><span class="lv">Bánhalmi Norbert e.U.</span></div>
+    <div class="lrow"><span class="lk">Owner</span><span class="lv">Norbert Bánhalmi</span></div>
+    <div class="lrow"><span class="lk">Legal form</span><span class="lv">Registered Sole Proprietorship (eingetragenes Einzelunternehmen, e.U.)</span></div>
+    <div class="lrow"><span class="lk">Registered office</span><span class="lv">Schwedenplatz 2, Laurenzerberg 5/I/8–9, 1010 Vienna, Austria</span></div>
+    <div class="lrow"><span class="lk">GISA number</span><span class="lv">36592951</span></div>
+    <div class="lrow"><span class="lk">VAT ID (UID)</span><span class="lv">ATU80445314</span></div>
+    <div class="lrow"><span class="lk">Job title</span><span class="lv">Professional Photographer (Berufsfotograf), awarded in Austria</span></div>
+    <div class="lrow"><span class="lk">Supervisory authority</span><span class="lv">Magistrat der Stadt Wien</span></div>
+    <div class="lrow"><span class="lk">Applicable legislation</span><span class="lv">Gewerbeordnung (GewO) — <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">ris.bka.gv.at</a></span></div>
+    <div class="lrow"><span class="lk">Chamber membership</span><span class="lv">Vienna Chamber of Commerce (WKO), Guild of Professional Photographers, American Chamber of Commerce in Austria (AMCHAM); Official Ambassador of OM System (Hungary)</span></div>
+    <div class="lrow"><span class="lk">Liability insurance</span><span class="lv">Wiener Städtische Versicherung AG</span></div>
+    <div class="lrow"><span class="lk">Contact</span><span class="lv">Tel (AT): +43 677 616 55592 · Tel (HU): +36 70 469 83 97 · hello@norbertbanhalmi.com</span></div>
+    <div class="lrow"><span class="lk">Additional addresses</span><span class="lv">Office: Gersthofer Str. 150–154/Haus 6, 1180 Vienna · Studio: Lágymányosi u. 15, 1111 Budapest, Hungary</span></div>
+    <div class="lrow"><span class="lk">Web hosting</span><span class="lv">Wix.com Ltd., Nemal St. 40, 6350671 Tel Aviv, Israel</span></div>
+    <div class="lrow"><span class="lk">Email provider</span><span class="lv">Google Cloud EMEA Ltd., 70 Sir John Rogerson's Quay, Dublin 2, Ireland</span></div>
+    <div class="lrow"><span class="lk">Online dispute resolution</span><span class="lv"><a href="http://ec.europa.eu/odr" target="_blank" rel="noopener">ec.europa.eu/odr</a> — complaints may also be sent to the email above.</span></div>
+    <div class="lrow"><span class="lk">Copyright</span><span class="lv">All content (photos and texts) is protected by copyright. Any use, reproduction or distribution without express consent is prohibited.</span></div>
+
+    <div class="priv">
+      <h3 class="serif">Privacy Information (GDPR)</h3>
+      <p><strong>Who processes your data?</strong> Bánhalmi Norbert e.U. (hello@norbertbanhalmi.com) and Viko Speier (hello@vikospeier.com).</p>
+      <p><strong>What data?</strong> Your name, email, LinkedIn profile, and session preferences (location, timing, wardrobe, notes).</p>
+      <p><strong>Why?</strong> To respond to your application and arrange a photography session. Legal basis: Your consent (Art. 6(1)(a) GDPR) and pre-contractual steps (Art. 6(1)(b) GDPR).</p>
+      <p><strong>Who receives it?</strong> Viko Speier exclusively, via email (Google Cloud EMEA Ltd., EU/Ireland). No sharing with third parties.</p>
+      <p><strong>How long?</strong> As long as necessary to handle your request, then deleted (subject to legal retention requirements).</p>
+      <p><strong>Your rights:</strong> Access, correct, delete, restrict, or port your data. Withdraw consent anytime. Complaint to Austrian Data Protection Authority (<a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a>).</p>
+      <p style="margin-top:18px;font-size:13px"><a href="https://www.norbertbanhalmi.com/privacy-policy" target="_blank" rel="noopener">Full Privacy Policy</a> · <a href="https://www.norbertbanhalmi.com/terms-conditions" target="_blank" rel="noopener">Terms &amp; Conditions</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="brand" style="font-size:21px;letter-spacing:3.5px">NORBERT <span style="color:var(--gold)">BANHALMI</span></div>
+    <p style="color:var(--muted);font-size:13.5px;margin-top:10px;letter-spacing:.4px">Visual Artist &amp; Executive Portrait Photographer · Vienna &amp; Budapest</p>
+    <div class="frule"></div>
+    <div class="fsoc">
+      <a href="https://www.linkedin.com/in/norbertbanhalmi/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://instagram.com/norbert.banhalmi" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/banhalmi.norbert" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@norbert.banhalmi" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://x.com/norbertbanhalmi" target="_blank" rel="noopener">X</a>
+    </div>
+    <p class="fmemb">Member · AMCHAM Austria · Vienna Chamber of Commerce (WKO) · MFVSZ</p>
+    <p class="fcopy">Est. 1999 © 2026 Norbert Banhalmi</p>
+    <div class="flinks">
+      <a href="#legal">Impressum</a> ·
+      <a href="https://www.norbertbanhalmi.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> ·
+      <a href="https://www.norbertbanhalmi.com/terms-conditions" target="_blank" rel="noopener">Terms</a> ·
+      <a href="https://www.norbertbanhalmi.com/faq" target="_blank" rel="noopener">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Show dev warning if Web3Forms key not configured */
+(function(){
+  var WEB3FORMS_ACCESS_KEY = "6d96ee2b-e07e-48fb-82a4-af04cee16813";
+  if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf("REPLACE_") === 0){
+    var w = document.getElementById('devWarning');
+    if(w) w.style.display = 'block';
+  }
+})();
+</script>
+
+<script>
+/* Hamburger menu */
+(function(){
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  var scrim = document.getElementById('navscrim');
+  function close(){
+    nav.classList.remove('open'); burger.classList.remove('open');
+    scrim.classList.remove('show'); burger.setAttribute('aria-expanded','false');
+  }
+  function toggle(){
+    var open = nav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    scrim.classList.toggle('show', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  burger.addEventListener('click', toggle);
+  scrim.addEventListener('click', close);
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+
+<script>
+(function(){
+  /*  EMAIL FORWARDING SETUP
+     Free, registration-light forwarding via Web3Forms.
+     1. Go to https://web3forms.com  enter hello@vikospeier.com
+     2. Copy the Access Key (a UUID) you receive
+     3. Paste it below, replacing REPLACE_WITH_WEB3FORMS_ACCESS_KEY
+     Recipient : hello@vikospeier.com  (exclusive recipient)
+     CC : hello@norbertbanhalmi.com
+     Until a key is set, the form falls back to opening the
+     visitor's email client (mailto) addressed to Viko Speier.  */
+  var WEB3FORMS_ACCESS_KEY = "6d96ee2b-e07e-48fb-82a4-af04cee16813";
+  var RECIPIENT = "hello@vikospeier.com";
+  var CC = "hello@norbertbanhalmi.com";
+
+  var form = document.getElementById('bookingForm');
+  var errAlert = document.getElementById('errAlert');
+  var okAlert = document.getElementById('okAlert');
+  var submitBtn = form.querySelector('button[type="submit"]');
+
+  function showFieldErr(group, msg){
+    group.classList.add('invalid');
+    var fe = group.querySelector('.field-err');
+    if(fe){ if(msg) fe.textContent = msg; fe.style.display='block'; }
+  }
+  function clearFieldErr(group){
+    group.classList.remove('invalid');
+    var fe = group.querySelector('.field-err');
+    if(fe) fe.style.display='none';
+  }
+
+  form.querySelectorAll('input,select,textarea').forEach(function(el){
+    el.addEventListener('input', function(){ var g=el.closest('.fgroup'); if(g) clearFieldErr(g); });
+    el.addEventListener('change', function(){ var g=el.closest('.fgroup'); if(g) clearFieldErr(g); });
+  });
+
+  function vals(nm){
+    return Array.prototype.map.call(
+      form.querySelectorAll('[name="'+nm+'"]:checked'), function(b){return b.value;}
+    ).join(', ');
+  }
+
+  function f(nm){ return form.querySelector('[name="'+nm+'"]'); }
+  function fv(nm){ var el=f(nm); return el ? el.value.trim() : ''; }
+
+  function buildPayload(name, email){
+    return {
+      "Name": name,
+      "Email": email,
+      "Phone": fv('phone'),
+      "Company": fv('company'),
+      "Role": fv('role'),
+      "LinkedIn": fv('linkedin'),
+      "Photography type": vals('type'),
+      "Vienna location": (form.querySelector('[name="location"]:checked')||{}).value || '',
+      "Location details": fv('location_detail'),
+      "Preferred timing": vals('timing'),
+      "Target date / deadline": fv('deadline'),
+      "Availability notes": fv('availability'),
+      "Wardrobe": vals('wardrobe'),
+      "Visual style": fv('style'),
+      "Intended usage": vals('usage'),
+      "Number of people": fv('people'),
+      "Notes": fv('notes'),
+      "Marketing consent": f('consent_marketing').checked ? "Yes" : "No",
+      "Privacy consent": f('consent_privacy').checked ? "Yes (Art. 6(1)(a)&(b) GDPR)" : "No"
+    };
+  }
+
+  function mailtoFallback(payload){
+    var lines = Object.keys(payload).map(function(k){ return k + ": " + payload[k]; });
+    var body = "AMCHAM sponsored session application\n\n" + lines.join("\n");
+    var href = "mailto:" + RECIPIENT + "?cc=" + encodeURIComponent(CC) +
+               "&subject=" + encodeURIComponent("AMCHAM session application — " + payload["Name"]) +
+               "&body=" + encodeURIComponent(body);
+    window.location.href = href;
+  }
+
+  function success(name, email){
+    okAlert.innerHTML = 'Thank you, ' + name.replace(/</g,'&lt;') +
+      '. Your application has been sent to <strong>Viko Speier</strong>, who personally reviews every submission and will reply within <strong>48 hours</strong> at <strong>' +
+      email.replace(/</g,'&lt;') + '</strong>.';
+    okAlert.classList.add('show');
+    form.querySelectorAll('input,select,textarea').forEach(function(el){
+      if(el.type==='checkbox'||el.type==='radio') el.checked=false; else el.value='';
+    });
+    okAlert.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errAlert.classList.remove('show'); okAlert.classList.remove('show');
+    var ok = true, firstBad = null;
+    function fail(group){ if(ok){ firstBad = group; } ok=false; showFieldErr(group); }
+    function group(sel){ return form.querySelector(sel).closest('.fgroup'); }
+
+    var name = fv('name');
+    if(!name){ fail(group('[name="name"]')); }
+
+    var email = fv('email');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ fail(group('[name="email"]')); }
+
+    if(!fv('linkedin')){ fail(group('[name="linkedin"]')); }
+
+    function checkboxGroup(nm){
+      var boxes = form.querySelectorAll('[name="'+nm+'"]');
+      if(!Array.prototype.some.call(boxes,function(b){return b.checked;})){ fail(boxes[0].closest('.fgroup')); }
+    }
+    checkboxGroup('type'); checkboxGroup('timing'); checkboxGroup('wardrobe'); checkboxGroup('usage');
+
+    var loc = form.querySelectorAll('[name="location"]');
+    if(!Array.prototype.some.call(loc,function(r){return r.checked;})){ fail(loc[0].closest('.fgroup')); }
+
+    if(!fv('style')){ fail(group('[name="style"]')); }
+    if(!f('consent_privacy').checked){ fail(f('consent_privacy').closest('.fgroup')); }
+
+    if(!ok){
+      errAlert.textContent = 'Please complete the required fields highlighted below.';
+      errAlert.classList.add('show');
+      if(firstBad) firstBad.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    var payload = buildPayload(name, email);
+
+    // Fallback to mailto if no access key configured
+    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf("REPLACE_") === 0){
+      mailtoFallback(payload);
+      success(name, email);
+      return;
+    }
+
+    submitBtn.disabled = true; submitBtn.textContent = "Sending…";
+    var body = Object.assign({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "AMCHAM session application — " + name,
+      from_name: "AMCHAM Booking Page",
+      replyto: email,
+      ccemail: CC
+      // The recipient (hello@vikospeier.com) is set on the Web3Forms access key.
+    }, payload);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {"Content-Type":"application/json", "Accept":"application/json"},
+      body: JSON.stringify(body)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      submitBtn.disabled = false; submitBtn.textContent = "Apply Now";
+      if(data && data.success){ success(name, email); }
+      else { throw new Error(data && data.message ? data.message : "send failed"); }
+    })
+    .catch(function(){
+      submitBtn.disabled = false; submitBtn.textContent = "Apply Now";
+      errAlert.innerHTML = 'Sending failed. Please email your application directly to <a href="mailto:'+RECIPIENT+'">'+RECIPIENT+'</a>, or try again.';
+      errAlert.classList.add('show');
+      errAlert.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
