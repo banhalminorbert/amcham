@@ -840,7 +840,7 @@
     okAlert.scrollIntoView({behavior:'smooth', block:'center'});
   }
 
-  form.addEventListener('submit', function(e){
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
     errAlert.classList.remove('show'); okAlert.classList.remove('show');
     var ok = true, firstBad = null;
@@ -876,40 +876,31 @@
 
     var payload = buildPayload(name, email);
 
-    // Fallback to mailto if no access key configured
-    if(!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf("REPLACE_") === 0){
-      mailtoFallback(payload);
-      success(name, email);
-      return;
-    }
-
     submitBtn.disabled = true; submitBtn.textContent = "Sending…";
-    var body = Object.assign({
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "AMCHAM session application — " + name,
-      from_name: "AMCHAM Booking Page",
-      replyto: email,
-      ccemail: CC
-      // The recipient (hello@vikospeier.com) is set on the Web3Forms access key.
-    }, payload);
-
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {"Content-Type":"application/json", "Accept":"application/json"},
-      body: JSON.stringify(body)
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      submitBtn.disabled = false; submitBtn.textContent = "Apply Now";
-      if(data && data.success){ success(name, email); }
-      else { throw new Error(data && data.message ? data.message : "send failed"); }
-    })
-    .catch(function(){
-      submitBtn.disabled = false; submitBtn.textContent = "Submit Visual Positioning Brief";
-      // Automatically fallback to mailto on API error
+    
+    try {
+      var formData = new FormData(form);
+      formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+      
+      var response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      var data = await response.json();
+      
+      if(response.ok && data.success){
+        success(name, email);
+      } else {
+        throw new Error(data && data.message ? data.message : "Web3Forms error");
+      }
+    } catch(error){
+      submitBtn.disabled = false; 
+      submitBtn.textContent = "Submit Visual Positioning Brief";
+      // Fallback to mailto on any error
       mailtoFallback(payload);
       success(name, email);
-    });
+    }
   });
 })();
 </script>
