@@ -1182,7 +1182,8 @@
       "Number of people": fv('people'),
       "Notes": fv('notes'),
       "Marketing consent": f('consent_marketing').checked ? "Yes" : "No",
-      "Privacy consent": f('consent_privacy').checked ? "Yes (Art. 6(1)(a)&(b) GDPR)" : "No"
+      "Privacy consent": f('consent_privacy').checked ? "Yes (Art. 6(1)(a)&(b) GDPR)" : "No",
+      "Copy to": CC
     };
   }
 
@@ -1250,8 +1251,7 @@
         access_key: WEB3FORMS_ACCESS_KEY,
         subject: "New AMCHAM session application — " + name,
         from_name: "AMCHAM Booking Page",
-        replyto: email,
-        ccemail: CC
+        replyto: email
       }, payload);
 
       var response = await fetch("https://api.web3forms.com/submit", {
