@@ -1244,25 +1244,32 @@
     var payload = buildPayload(name, email);
 
     submitBtn.disabled = true; submitBtn.textContent = "Sending…";
-    
+
     try {
-      var formData = new FormData(form);
-      formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-      
+      var body = Object.assign({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: "New AMCHAM session application — " + name,
+        from_name: "AMCHAM Booking Page",
+        replyto: email,
+        ccemail: CC
+      }, payload);
+
       var response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(body)
       });
-      
+
       var data = await response.json();
-      
+
       if(response.ok && data.success){
         success(name, email);
+        form.reset();
       } else {
         throw new Error(data && data.message ? data.message : "Web3Forms error");
       }
     } catch(error){
-      submitBtn.disabled = false; 
+      submitBtn.disabled = false;
       submitBtn.textContent = "Submit Visual Positioning Brief";
       // Fallback to mailto on any error
       mailtoFallback(payload);
